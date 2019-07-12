@@ -58,13 +58,13 @@ public class ReusableFullScreenDialog extends DialogFragment {
         super.onCreateView(inflater, container, savedInstanceState);
         Toolbar toolbar=new Toolbar(getContext());
         LinearLayout.LayoutParams toolBarParams = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT, 150);
+                LinearLayout.LayoutParams.MATCH_PARENT, 115);
         toolbar.setLayoutParams(toolBarParams);
         toolbar.setTitle(title);
         toolbar.setTitleTextColor(Color.WHITE);
         toolbar.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
         toolbar.setVisibility(View.VISIBLE);
-        toolbar.setNavigationIcon(R.drawable.close);
+        toolbar.setNavigationIcon(android.R.drawable.ic_menu_close_clear_cancel);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

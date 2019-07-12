@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ReusableFullScreenDialog</string>
+    <string name="open_Full_Screen_Dialog">Open Full Screen Dialog</string>
 </resources>

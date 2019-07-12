@@ -9,7 +9,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Open Full Screen Dialog"
+        android:text="@string/open_Full_Screen_Dialog"
         android:onClick="openFullScreenDialog"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
