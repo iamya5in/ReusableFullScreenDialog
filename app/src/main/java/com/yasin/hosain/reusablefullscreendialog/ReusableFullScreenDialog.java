@@ -1,17 +1,24 @@
 package com.yasin.hosain.reusablefullscreendialog;
 
 
+import android.app.ActionBar;
 import android.app.Dialog;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Parcelable;
+import android.support.annotation.AttrRes;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+
+import org.w3c.dom.Attr;
+
 import java.io.Serializable;
 
 /**
@@ -37,7 +44,7 @@ public class ReusableFullScreenDialog extends DialogFragment {
         args.putInt(LAYOUT_KEY,layoutResourceID);
         args.putInt(THEME_KEY,themeResourceId);
         args.putString(TITLE_KEY, title);
-        args.putSerializable(DIALOG_KEY,onSetFullScreenDialogView);
+        args.putParcelable(DIALOG_KEY,onSetFullScreenDialogView);
         frag.setArguments(args);
         return frag;
     }
@@ -48,7 +55,7 @@ public class ReusableFullScreenDialog extends DialogFragment {
         themeId=getArguments().getInt(THEME_KEY);
         layoutId=getArguments().getInt(LAYOUT_KEY);
         title=getArguments().getString(TITLE_KEY);
-        onSetFullScreenDialogView= (OnSetFullScreenDialogView) getArguments().getSerializable(DIALOG_KEY);
+        onSetFullScreenDialogView=getArguments().getParcelable(DIALOG_KEY);
         setStyle(android.app.DialogFragment.STYLE_NORMAL,themeId);
     }
 
@@ -57,8 +64,13 @@ public class ReusableFullScreenDialog extends DialogFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         Toolbar toolbar=new Toolbar(getContext());
+        TypedValue tv = new TypedValue();
+        int actionBarHeight=130;
+        if (getContext().getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true)) {
+            actionBarHeight = TypedValue.complexToDimensionPixelSize(tv.data,getResources().getDisplayMetrics());
+        }
         LinearLayout.LayoutParams toolBarParams = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT, 115);
+                LinearLayout.LayoutParams.MATCH_PARENT, actionBarHeight);
         toolbar.setLayoutParams(toolBarParams);
         toolbar.setTitle(title);
         toolbar.setTitleTextColor(Color.WHITE);
@@ -76,7 +88,7 @@ public class ReusableFullScreenDialog extends DialogFragment {
         return onSetFullScreenDialogView.setView(view,getDialog());
     }
 
-    public interface OnSetFullScreenDialogView extends Serializable {
+    public interface OnSetFullScreenDialogView extends Parcelable {
         View setView(View view, Dialog dialog);
     }
 }
