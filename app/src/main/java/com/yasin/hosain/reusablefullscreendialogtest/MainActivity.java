@@ -1,4 +1,4 @@
-package com.yasin.hosain.reusablefullscreendialog;
+package com.yasin.hosain.reusablefullscreendialogtest;
 
 import android.app.Dialog;
 import android.os.Parcel;
@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.akexorcist.localizationactivity.ui.LocalizationActivity;
-
+import com.yasin.hosain.reusablefullscreendialog.ReusableFullScreenDialog;
 
 
 public class MainActivity extends LocalizationActivity{

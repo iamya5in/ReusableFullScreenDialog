@@ -1,25 +1,18 @@
 package com.yasin.hosain.reusablefullscreendialog;
 
 
-import android.app.ActionBar;
 import android.app.Dialog;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.support.annotation.AttrRes;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-
-import org.w3c.dom.Attr;
-
-import java.io.Serializable;
 
 /**
  * Created by YASIN on 04,July,2019

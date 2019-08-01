@@ -1,4 +1,4 @@
-package com.yasin.hosain.reusablefullscreendialog;
+package com.yasin.hosain.reusablefullscreendialogtest;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
