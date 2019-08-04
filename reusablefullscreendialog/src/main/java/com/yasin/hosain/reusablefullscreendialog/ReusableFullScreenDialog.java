@@ -2,11 +2,13 @@ package com.yasin.hosain.reusablefullscreendialog;
 
 
 import android.app.Dialog;
+import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -67,7 +69,11 @@ public class ReusableFullScreenDialog extends DialogFragment {
         toolbar.setLayoutParams(toolBarParams);
         toolbar.setTitle(title);
         toolbar.setTitleTextColor(Color.WHITE);
-        toolbar.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+        TypedValue typedValue = new TypedValue();
+        TypedArray a = getContext().obtainStyledAttributes(typedValue.data, new int[] { R.attr.colorPrimary});
+        int color = a.getColor(0, 0);
+        a.recycle();
+        toolbar.setBackgroundColor(color);
         toolbar.setVisibility(View.VISIBLE);
         toolbar.setNavigationIcon(android.R.drawable.ic_menu_close_clear_cancel);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
